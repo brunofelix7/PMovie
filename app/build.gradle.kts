@@ -1,9 +1,16 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
 }
+
+val apiKeyFile = rootProject.file("apiKey.properties")
+val properties = Properties()
+properties.load(FileInputStream(apiKeyFile))
 
 android {
     namespace = "me.brunofelix.pmovie"
@@ -15,11 +22,15 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "API_KEY", properties["API_KEY"].toString())
+        buildConfigField("String", "BASE_URL", properties["BASE_URL"].toString())
+        buildConfigField("String", "BASE_URL_IMAGE", properties["BASE_URL_IMAGE"].toString())
     }
 
     buildTypes {
@@ -40,6 +51,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
