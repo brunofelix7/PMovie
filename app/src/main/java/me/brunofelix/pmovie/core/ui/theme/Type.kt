@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.ui.theme
+package me.brunofelix.pmovie.core.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
