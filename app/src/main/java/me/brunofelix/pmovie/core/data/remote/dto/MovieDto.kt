@@ -13,5 +13,8 @@ data class MovieDto(
     val totalPages: Int?,
 
     @SerializedName("total_results")
-    val totalResults: Int?
+    val totalResults: Int?,
+
+    @SerializedName("dates")
+    val dates: List<DatesDto>? = null,
 )
