@@ -1,11 +1,10 @@
 package me.brunofelix.pmovie.core.presentation.ui.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CalendarToday
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.ui.graphics.vector.ImageVector
-import me.brunofelix.pmovie.core.util.Routes
 
 sealed class BottomNavItem(
     val title: String,
@@ -15,18 +14,18 @@ sealed class BottomNavItem(
     data object Popular: BottomNavItem(
         title = "Popular",
         icon = Icons.Default.Movie,
-        route = Routes.popularScreen
+        route = Screen.Popular.route
     )
 
     data object Upcoming: BottomNavItem(
         title = "Upcoming",
-        icon = Icons.Default.CalendarToday,
-        route = Routes.upcomingScreen
+        icon = Icons.Default.DateRange,
+        route = Screen.Upcoming.route
     )
 
     data object Favorite: BottomNavItem(
         title = "Favorite",
         icon = Icons.Default.Favorite,
-        route = Routes.favoritesScreen
+        route = Screen.Favorite.route
     )
 }
