@@ -8,24 +8,24 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class BottomNavItem(
     val title: String,
-    val icon: ImageVector,
-    val route: String
+    val route: String,
+    val icon: ImageVector
 ) {
     data object Popular: BottomNavItem(
-        title = "Popular",
+        title = Screen.Popular.title,
+        route = Screen.Popular.route,
         icon = Icons.Default.Movie,
-        route = Screen.Popular.route
     )
 
     data object Upcoming: BottomNavItem(
-        title = "Upcoming",
-        icon = Icons.Default.DateRange,
-        route = Screen.Upcoming.route
+        title = Screen.Upcoming.title,
+        route = Screen.Upcoming.route,
+        icon = Icons.Default.DateRange
     )
 
     data object Favorite: BottomNavItem(
-        title = "Favorite",
-        icon = Icons.Default.Favorite,
-        route = Screen.Favorite.route
+        title = Screen.Favorite.title,
+        route = Screen.Favorite.route,
+        icon = Icons.Default.Favorite
     )
 }
