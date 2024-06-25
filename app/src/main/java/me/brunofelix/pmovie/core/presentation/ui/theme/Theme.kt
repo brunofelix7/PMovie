@@ -12,7 +12,7 @@ private val DarkColorPalette = darkColorScheme(
 )
 
 private val LightColorPalette = lightColorScheme(
-    primary = YellowSecondary,
+    primary = redSecondary,
     secondary = BlackSecondary,
 
     /* Other default colors to override

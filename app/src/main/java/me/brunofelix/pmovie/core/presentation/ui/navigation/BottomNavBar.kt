@@ -13,7 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import me.brunofelix.pmovie.core.presentation.ui.theme.black
-import me.brunofelix.pmovie.core.presentation.ui.theme.yellow
+import me.brunofelix.pmovie.core.presentation.ui.theme.red
 
 @Composable
 fun BottomNavBar(
@@ -34,7 +34,7 @@ fun BottomNavBar(
         val currentRoute = navBackStackEntry?.destination?.route
 
         items.forEach { currentItem ->
-            val selectedItemColor = if (currentRoute == currentItem.route) yellow else Color.Gray
+            val selectedItemColor = if (currentRoute == currentItem.route) red else Color.Gray
 
             NavigationBarItem(
                 selected = currentRoute == currentItem.route,
