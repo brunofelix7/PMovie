@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.feature.movie.paging
+package me.brunofelix.pmovie.feature.movie.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

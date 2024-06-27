@@ -1,8 +1,8 @@
 package me.brunofelix.pmovie.feature.movie.domain.source
 
 import me.brunofelix.pmovie.core.data.remote.dto.MovieDto
-import me.brunofelix.pmovie.feature.movie.paging.MoviePopularPagingSource
-import me.brunofelix.pmovie.feature.movie.paging.MovieUpcomingPagingSource
+import me.brunofelix.pmovie.feature.movie.data.paging.MoviePopularPagingSource
+import me.brunofelix.pmovie.feature.movie.data.paging.MovieUpcomingPagingSource
 import retrofit2.Response
 
 interface MovieRemoteDataSource {
