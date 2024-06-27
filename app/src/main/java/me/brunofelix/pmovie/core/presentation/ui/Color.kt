@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.presentation.ui.theme
+package me.brunofelix.pmovie.core.presentation.ui
 
 import androidx.compose.ui.graphics.Color
 

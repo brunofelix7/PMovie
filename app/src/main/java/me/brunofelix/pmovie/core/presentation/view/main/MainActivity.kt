@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.presentation.ui.main
+package me.brunofelix.pmovie.core.presentation.view.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import me.brunofelix.pmovie.core.presentation.ui.theme.PMovieTheme
+import me.brunofelix.pmovie.core.presentation.ui.PMovieTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

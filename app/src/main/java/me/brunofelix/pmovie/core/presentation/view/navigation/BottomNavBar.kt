@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.presentation.ui.navigation
+package me.brunofelix.pmovie.core.presentation.view.navigation
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -12,8 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import me.brunofelix.pmovie.core.presentation.ui.theme.black
-import me.brunofelix.pmovie.core.presentation.ui.theme.red
+import me.brunofelix.pmovie.core.presentation.ui.black
+import me.brunofelix.pmovie.core.presentation.ui.red
 
 @Composable
 fun BottomNavBar(

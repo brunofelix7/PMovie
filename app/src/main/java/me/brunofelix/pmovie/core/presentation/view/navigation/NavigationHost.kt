@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.presentation.ui.navigation
+package me.brunofelix.pmovie.core.presentation.view.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

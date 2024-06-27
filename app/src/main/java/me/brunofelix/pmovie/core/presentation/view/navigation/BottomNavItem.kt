@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.presentation.ui.navigation
+package me.brunofelix.pmovie.core.presentation.view.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange

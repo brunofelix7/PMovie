@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.presentation.ui.navigation
+package me.brunofelix.pmovie.core.presentation.view.navigation
 
 sealed class Screen(
     val title: String,
