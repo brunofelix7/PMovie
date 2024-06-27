@@ -7,8 +7,9 @@ import me.brunofelix.pmovie.core.util.logError
 import me.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class MovieUpcomingPagingSource(
+class MovieUpcomingPagingSource @Inject constructor(
     private val dataSource: MovieRemoteDataSource
 ) : PagingSource<Int, Movie>() {
 

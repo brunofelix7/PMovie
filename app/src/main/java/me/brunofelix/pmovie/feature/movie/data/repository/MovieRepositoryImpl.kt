@@ -7,8 +7,9 @@ import kotlinx.coroutines.flow.Flow
 import me.brunofelix.pmovie.core.domain.model.Movie
 import me.brunofelix.pmovie.feature.movie.domain.repository.MovieRepository
 import me.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
+import javax.inject.Inject
 
-class MovieRepositoryImpl(
+class MovieRepositoryImpl @Inject constructor(
     private val dataSource: MovieRemoteDataSource
 ) : MovieRepository {
 

@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class GetUpcomingMoviesUseCaseImpl @Inject constructor(
     private val repository: MovieRepository
-) : GetPopularMoviesUseCase {
+) : GetUpcomingMoviesUseCase {
 
     override fun invoke(): Flow<PagingData<Movie>> {
         return repository.getUpcoming(
