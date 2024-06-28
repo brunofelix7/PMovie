@@ -44,7 +44,7 @@ data class ResultDto(
     val video: Boolean?,
 
     @SerializedName("vote_average")
-    val voteAverage: Double?,
+    val voteAverage: Float?,
 
     @SerializedName("vote_count")
     val voteCount: Int?,
@@ -81,7 +81,7 @@ data class ResultDto(
             id = id ?: -1,
             title = title ?: "Undefined",
             imageUrl = posterPath?.toPostUrl() ?: "",
-            voteAverage = voteAverage ?: -1.0,
+            voteAverage = voteAverage ?: -1.0F,
             movieDetails = MovieDetails(
                 genres = genres?.map { it.toGenre() },
                 overview = overview ?: "",

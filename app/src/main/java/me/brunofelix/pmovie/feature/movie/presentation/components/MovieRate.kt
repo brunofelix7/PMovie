@@ -24,9 +24,9 @@ fun MovieRate(
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = modifier.background(BlackPrimary),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier.background(BlackPrimary)
     ) {
         Icon(
             imageVector = Icons.Default.Star,
