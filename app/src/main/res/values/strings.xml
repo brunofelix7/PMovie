@@ -1,18 +1,20 @@
 <resources>
+    <!-- App name -->
     <string name="app_name">PMovie</string>
 
-    <!--    Movie Details-->
-    <string name="release_date">Lançamento</string>
-    <string name="vote_average">"Média (votos)"</string>
-    <string name="duration">Duração</string>
-
+    <!-- Screens -->
+    <string name="release_date">Release Date</string>
+    <string name="vote_average">"Average"</string>
+    <string name="duration">Duration</string>
     <string name="duration_minutes">%1$s min</string>
     <string name="description">Description</string>
-
-    <!--    TopBar text-->
     <string name="populars">Populars</string>
     <string name="upcoming">Upcoming</string>
     <string name="favorites">Favorites</string>
     <string name="details">Details</string>
     <string name="search">Search</string>
+
+    <!-- Error messages -->
+    <string name="error">Oops!</string>
+    <string name="connection_error">Please, check or internet connection.</string>
 </resources>
