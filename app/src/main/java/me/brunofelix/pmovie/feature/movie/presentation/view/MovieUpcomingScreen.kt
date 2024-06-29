@@ -10,16 +10,16 @@ import me.brunofelix.pmovie.feature.movie.presentation.components.MovieTopAppBar
 import me.brunofelix.pmovie.feature.movie.presentation.state.MovieState
 
 @Composable
-fun MoviePopularScreen(
+fun MovieUpcomingScreen(
     uiState: MovieState,
     navToMovieDetails: (id: Int) -> Unit
 ) {
-    val movies = uiState.popularMovies.collectAsLazyPagingItems()
+    val movies = uiState.upcomingMovies.collectAsLazyPagingItems()
 
     Scaffold(
         topBar = {
             MovieTopAppBar(
-                title = stringResource(R.string.populars)
+                title = stringResource(R.string.upcoming)
             )
         },
         content = { innerPadding ->

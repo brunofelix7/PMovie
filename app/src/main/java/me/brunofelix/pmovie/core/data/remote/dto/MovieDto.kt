@@ -16,5 +16,5 @@ data class MovieDto(
     val totalResults: Int?,
 
     @SerializedName("dates")
-    val dates: List<DatesDto>? = null,
+    val dates: DatesDto? = null,
 )

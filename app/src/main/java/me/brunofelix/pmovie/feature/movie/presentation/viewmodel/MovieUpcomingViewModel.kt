@@ -7,13 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import me.brunofelix.pmovie.feature.movie.domain.usecase.GetPopularMoviesUseCase
+import me.brunofelix.pmovie.feature.movie.domain.usecase.GetUpcomingMoviesUseCase
 import me.brunofelix.pmovie.feature.movie.presentation.state.MovieState
 import javax.inject.Inject
 
 @HiltViewModel
-class MoviePopularViewModel @Inject constructor(
-    useCase: GetPopularMoviesUseCase
+class MovieUpcomingViewModel @Inject constructor(
+    useCase: GetUpcomingMoviesUseCase
 ): ViewModel() {
 
     var uiState by mutableStateOf(MovieState())
@@ -21,6 +21,6 @@ class MoviePopularViewModel @Inject constructor(
 
     init {
         val movies = useCase.invoke().cachedIn(viewModelScope)
-        uiState = uiState.copy(popularMovies = movies)
+        uiState = uiState.copy(upcomingMovies = movies)
     }
 }
