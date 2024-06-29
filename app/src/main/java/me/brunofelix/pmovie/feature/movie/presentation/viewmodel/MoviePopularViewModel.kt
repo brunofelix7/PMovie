@@ -16,7 +16,8 @@ class MoviePopularViewModel @Inject constructor(
     useCase: GetPopularMoviesUseCase
 ): ViewModel() {
 
-    private var uiState by mutableStateOf(MovieState())
+    var uiState by mutableStateOf(MovieState())
+        private set
 
     init {
         val movies = useCase.invoke().cachedIn(viewModelScope)

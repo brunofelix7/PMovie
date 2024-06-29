@@ -4,7 +4,7 @@ sealed class Screen(
     val title: String,
     val route: String
 ) {
-    data object Popular : Screen("Popular","popular")
+    data object Popular : Screen("Populars","popular")
     data object Upcoming : Screen("Upcoming","upcoming")
-    data object Favorite : Screen("Favorite","favorite")
+    data object Favorite : Screen("Favorites","favorite")
 }

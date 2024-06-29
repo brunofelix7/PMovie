@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -47,7 +46,7 @@ fun MovieItem(
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
             modifier = Modifier
                 .height(200.dp)
-                .width(100.dp)
+                .fillMaxWidth()
                 .padding(4.dp)
                 .clickable {
                     onItemClick(movie.id)
@@ -59,7 +58,8 @@ fun MovieItem(
                         .data(movie.imageUrl)
                         .crossfade(true)
                         .error(R.drawable.ic_error_image)
-                        .placeholder(R.mipmap.ic_launcher),
+                        .placeholder(R.mipmap.ic_launcher)
+                        .build(),
                     contentScale = ContentScale.FillHeight,
                     contentDescription = "",
                     modifier = Modifier

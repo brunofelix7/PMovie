@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.emptyFlow
 import me.brunofelix.pmovie.core.domain.model.Movie
 
 data class MovieState(
-    val movies: Flow<PagingData<Movie>> = emptyFlow(),
+    val movies: Flow<PagingData<Movie>> = emptyFlow()
 )

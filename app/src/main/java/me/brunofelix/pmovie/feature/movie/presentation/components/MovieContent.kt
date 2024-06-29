@@ -36,9 +36,12 @@ fun MovieContent(
             items(paging.itemCount) { index ->
                 val movie = paging[index]
                 movie?.let {
-                    MovieItem(movie = movie) { id ->
-                        onClick(id)
-                    }
+                    MovieItem(
+                        movie = movie,
+                        onItemClick = { id ->
+                            onClick(id)
+                        }
+                    )
                 }
             }
         }
