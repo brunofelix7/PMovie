@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import me.brunofelix.pmovie.core.presentation.view.navigation.BottomNavBar
-import me.brunofelix.pmovie.core.presentation.view.navigation.NavigationHost
+import me.brunofelix.pmovie.core.presentation.components.navbar.BottomNavBar
+import me.brunofelix.pmovie.core.presentation.view.navigation.MovieNavHost
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -21,7 +21,7 @@ fun MainScreen(navController: NavHostController) {
             BottomNavBar(navController)
         },
         content = {
-            NavigationHost(navController)
+            MovieNavHost(navController)
         }
     )
 }

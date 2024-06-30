@@ -1,10 +1,11 @@
-package me.brunofelix.pmovie.core.presentation.view.navigation
+package me.brunofelix.pmovie.core.presentation.components.navbar
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.ui.graphics.vector.ImageVector
+import me.brunofelix.pmovie.core.presentation.view.navigation.Screen
 
 sealed class BottomNavItem(
     val title: String,

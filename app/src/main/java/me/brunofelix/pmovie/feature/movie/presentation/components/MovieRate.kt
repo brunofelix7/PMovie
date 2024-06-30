@@ -42,7 +42,7 @@ fun MovieRate(
             modifier = modifier.size(12.dp)
         )
         Text(
-            text = rate.formatDecimal(),
+            text = if (rate <= 0) "--" else rate.formatDecimal(),
             style = MaterialTheme.typography.bodyMedium,
             color = Color.White,
             fontSize = 10.sp

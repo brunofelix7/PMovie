@@ -5,13 +5,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import me.brunofelix.pmovie.core.presentation.components.navbar.BottomNavItem
 import me.brunofelix.pmovie.feature.movie.presentation.view.MoviePopularScreen
 import me.brunofelix.pmovie.feature.movie.presentation.view.MovieUpcomingScreen
 import me.brunofelix.pmovie.feature.movie.presentation.viewmodel.MoviePopularViewModel
 import me.brunofelix.pmovie.feature.movie.presentation.viewmodel.MovieUpcomingViewModel
 
 @Composable
-fun NavigationHost(
+fun MovieNavHost(
     navController: NavHostController
 ) {
     val popularViewModel: MoviePopularViewModel = hiltViewModel()

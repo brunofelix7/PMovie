@@ -6,23 +6,32 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import coil.compose.AsyncImage
+import coil.compose.AsyncImagePainter
 import coil.request.ImageRequest
 import me.brunofelix.pmovie.R
 import me.brunofelix.pmovie.core.domain.model.Movie
+import me.brunofelix.pmovie.core.presentation.components.LoadingView
 import me.brunofelix.pmovie.core.presentation.ui.BlackPrimary
+import me.brunofelix.pmovie.feature.movie.presentation.state.MovieItemState
 
 @Composable
 fun MovieItem(
@@ -30,6 +39,10 @@ fun MovieItem(
     modifier: Modifier = Modifier,
     onItemClick: (id: Int) -> Unit
 ) {
+    val uiState = remember {
+        mutableStateOf<MovieItemState>(MovieItemState.Loading)
+    }
+
     Box(
         modifier = modifier
     ) {
@@ -52,14 +65,30 @@ fun MovieItem(
                     onItemClick(movie.id)
                 }
         ) {
-            Box {
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
                         .data(movie.imageUrl)
                         .crossfade(true)
-                        .error(R.drawable.ic_error_image)
-                        .placeholder(R.mipmap.ic_launcher)
                         .build(),
+                    onState = { state ->
+                        when (state) {
+                            is AsyncImagePainter.State.Loading -> {
+                                uiState.value = MovieItemState.Loading
+                            }
+                            is AsyncImagePainter.State.Success -> {
+                                uiState.value = MovieItemState.Success
+                            }
+                            is AsyncImagePainter.State.Error -> {
+                                uiState.value = MovieItemState.Error
+                            }
+                            is AsyncImagePainter.State.Empty -> {
+                                uiState.value = MovieItemState.Error
+                            }
+                        }
+                    },
                     contentScale = ContentScale.FillHeight,
                     contentDescription = "",
                     modifier = Modifier
@@ -68,6 +97,20 @@ fun MovieItem(
                         .background(BlackPrimary)
                         .clip(RoundedCornerShape(6.dp))
                 )
+                when (uiState.value) {
+                    is MovieItemState.Loading -> {
+                        LoadingView()
+                    }
+                    is MovieItemState.Error -> {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_image_off),
+                            contentDescription = "",
+                            tint = Color.White,
+                            modifier = Modifier.size(40.dp)
+                        )
+                    }
+                    else -> Unit
+                }
             }
         }
     }
