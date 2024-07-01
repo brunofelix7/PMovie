@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import me.brunofelix.pmovie.R
-import me.brunofelix.pmovie.core.presentation.ui.BlackPrimary
+import me.brunofelix.pmovie.core.presentation.ui.Colors
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,7 +27,7 @@ fun MovieTopAppBar(
             )
         },
         colors = TopAppBarDefaults.largeTopAppBarColors(
-            containerColor = BlackPrimary
+            containerColor = Colors.blackPrimary
         ),
         modifier = modifier.fillMaxWidth()
     )

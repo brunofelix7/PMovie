@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.util
+package me.brunofelix.pmovie.core.data
 
 sealed class ResultData<out T> {
     data object Loading : ResultData<Nothing>()

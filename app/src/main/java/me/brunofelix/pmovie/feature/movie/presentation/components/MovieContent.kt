@@ -19,7 +19,7 @@ import me.brunofelix.pmovie.R
 import me.brunofelix.pmovie.core.domain.model.Movie
 import me.brunofelix.pmovie.core.presentation.components.ErrorView
 import me.brunofelix.pmovie.core.presentation.components.LoadingView
-import me.brunofelix.pmovie.core.presentation.ui.BlackPrimary
+import me.brunofelix.pmovie.core.presentation.ui.Colors
 
 @Composable
 fun MovieContent(
@@ -29,7 +29,7 @@ fun MovieContent(
     onClick: (id: Int) -> Unit
 ) {
     Box(
-        modifier = modifier.background(BlackPrimary)
+        modifier = modifier.background(Colors.blackPrimary)
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),

@@ -30,7 +30,7 @@ import coil.request.ImageRequest
 import me.brunofelix.pmovie.R
 import me.brunofelix.pmovie.core.domain.model.Movie
 import me.brunofelix.pmovie.core.presentation.components.LoadingView
-import me.brunofelix.pmovie.core.presentation.ui.BlackPrimary
+import me.brunofelix.pmovie.core.presentation.ui.Colors
 import me.brunofelix.pmovie.feature.movie.presentation.state.MovieItemState
 
 @Composable
@@ -94,7 +94,7 @@ fun MovieItem(
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(Alignment.Center)
-                        .background(BlackPrimary)
+                        .background(Colors.blackPrimary)
                         .clip(RoundedCornerShape(6.dp))
                 )
                 when (uiState.value) {

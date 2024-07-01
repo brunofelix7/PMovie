@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import me.brunofelix.pmovie.core.presentation.ui.red
+import me.brunofelix.pmovie.core.presentation.ui.Colors
 
 @Composable
 fun ErrorView(
@@ -41,7 +41,7 @@ fun ErrorView(
                 onRetry()
             },
             colors = ButtonDefaults.buttonColors(
-                containerColor = red,
+                containerColor = Colors.redPrimary,
                 contentColor = Color.White
             )
         ) {

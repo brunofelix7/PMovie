@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import me.brunofelix.pmovie.core.presentation.ui.red
+import me.brunofelix.pmovie.core.presentation.ui.Colors
 
 @Composable
 fun LoadingView(modifier: Modifier = Modifier) {
@@ -23,7 +23,7 @@ fun LoadingView(modifier: Modifier = Modifier) {
             .padding(8.dp)
     ) {
         CircularProgressIndicator(
-            color = red,
+            color = Colors.redPrimary,
             modifier = modifier.size(40.dp)
         )
     }

@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.brunofelix.pmovie.core.extension.formatDecimal
-import me.brunofelix.pmovie.core.presentation.ui.BlackPrimary
+import me.brunofelix.pmovie.core.presentation.ui.Colors
 
 @Composable
 fun MovieRate(
@@ -32,7 +32,7 @@ fun MovieRate(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clip(shape = RoundedCornerShape(8.dp))
-            .background(color = BlackPrimary)
+            .background(color = Colors.blackPrimary)
             .padding(horizontal = 6.dp)
     ) {
         Icon(
