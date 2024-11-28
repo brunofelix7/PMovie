@@ -1,4 +1,4 @@
-package dev.brunofelix.pmovie.core.presentation.view.navigation
+package dev.brunofelix.pmovie.core.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel

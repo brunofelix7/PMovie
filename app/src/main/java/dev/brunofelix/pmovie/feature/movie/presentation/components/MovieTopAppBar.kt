@@ -26,7 +26,7 @@ fun MovieTopAppBar(
                 color = Color.White
             )
         },
-        colors = TopAppBarDefaults.largeTopAppBarColors(
+        colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = Colors.blackPrimary
         ),
         modifier = modifier.fillMaxWidth()

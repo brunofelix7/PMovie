@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
+    kotlin("plugin.serialization") version(libs.versions.kotlin)
 }
 
 val apiKeyFile = rootProject.file("apiKey.properties")
@@ -84,7 +85,7 @@ dependencies {
     // Gson
     implementation(libs.gson)
 
-    // Serialization JSON
+    // Kotlin Serialization
     implementation(libs.kotlinx.serialization.json)
 
     // Jetpack Compose
@@ -97,11 +98,11 @@ dependencies {
     implementation(libs.accompanist.flowlayout)
     implementation(libs.androidx.navigation.compose)
 
-    // Paging3
+    // Paging 3
     implementation(libs.androidx.paging.runtime.ktx)
     implementation(libs.androidx.paging.compose)
 
-    // Coroutine Lifecycle
+    // Lifecycle
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.runtime.ktx)
