@@ -5,5 +5,5 @@ data class Movie(
     val title: String,
     val imageUrl: String,
     val voteAverage: Float,
-    var movieDetails: MovieDetails? = null
+    var details: MovieDetails? = null
 )

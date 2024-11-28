@@ -28,7 +28,7 @@ fun MovieNavHost(
         composable<MovieRoute.PopularScreen>{
             MoviePopularScreen(
                 uiState = popularViewModel.uiState,
-                navToMovieDetails = {
+                onItemClick = {
                     navController.navigate(MovieRoute.DetailsScreen(it))
                 }
             )
@@ -36,7 +36,7 @@ fun MovieNavHost(
         composable<MovieRoute.UpcomingScreen>{
             MovieUpcomingScreen(
                 uiState = upcomingViewModel.uiState,
-                navToMovieDetails = {
+                onItemClick = {
                     navController.navigate(MovieRoute.DetailsScreen(it))
                 }
             )
@@ -51,7 +51,12 @@ fun MovieNavHost(
             popExitTransition = TransitionAnimation.popExitTransition
         ) { backStackEntry ->
             val route = backStackEntry.toRoute<MovieRoute.DetailsScreen>()
-            MovieDetailsScreen(id = route.id)
+            MovieDetailsScreen(
+                movieId = route.movieId,
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }

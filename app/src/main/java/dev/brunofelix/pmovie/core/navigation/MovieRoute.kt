@@ -14,5 +14,5 @@ sealed class MovieRoute {
     data object FavoritesScreen : MovieRoute()
 
     @Serializable
-    data class DetailsScreen(val id: Int) : MovieRoute()
+    data class DetailsScreen(val movieId: Int) : MovieRoute()
 }

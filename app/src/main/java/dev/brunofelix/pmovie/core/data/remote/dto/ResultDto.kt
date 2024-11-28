@@ -1,10 +1,10 @@
 package dev.brunofelix.pmovie.core.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
-import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
-import dev.brunofelix.pmovie.feature.movie.domain.model.MovieDetails
 import dev.brunofelix.pmovie.core.extension.toBackdropUrl
 import dev.brunofelix.pmovie.core.extension.toPostUrl
+import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
+import dev.brunofelix.pmovie.feature.movie.domain.model.MovieDetails
 
 data class ResultDto(
     @SerializedName("id")
@@ -82,7 +82,7 @@ data class ResultDto(
             title = title ?: "Undefined",
             imageUrl = posterPath?.toPostUrl() ?: "",
             voteAverage = voteAverage ?: -1.0F,
-            movieDetails = MovieDetails(
+            details = MovieDetails(
                 genres = genres?.map { it.toGenre() },
                 overview = overview ?: "",
                 backdropPath = backdropPath?.toBackdropUrl() ?: "",
