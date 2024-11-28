@@ -20,4 +20,5 @@
 
     <!-- Content descriptions -->
     <string name="navbar_icon">Navbar icon</string>
+    <string name="top_bar_search_icon">Search icon</string>
 </resources>

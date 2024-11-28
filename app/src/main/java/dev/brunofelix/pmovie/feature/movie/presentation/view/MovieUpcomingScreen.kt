@@ -6,7 +6,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.paging.compose.collectAsLazyPagingItems
 import dev.brunofelix.pmovie.R
 import dev.brunofelix.pmovie.feature.movie.presentation.components.MovieContent
-import dev.brunofelix.pmovie.feature.movie.presentation.components.MovieTopAppBar
+import dev.brunofelix.pmovie.feature.movie.presentation.components.MovieTopBar
 import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieState
 
 @Composable
@@ -18,7 +18,7 @@ fun MovieUpcomingScreen(
 
     Scaffold(
         topBar = {
-            MovieTopAppBar(
+            MovieTopBar(
                 title = stringResource(R.string.upcoming)
             )
         },

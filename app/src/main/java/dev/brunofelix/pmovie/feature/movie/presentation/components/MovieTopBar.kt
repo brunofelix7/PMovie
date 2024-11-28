@@ -1,9 +1,13 @@
 package dev.brunofelix.pmovie.feature.movie.presentation.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MediumTopAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,11 +19,11 @@ import dev.brunofelix.pmovie.core.presentation.ui.Colors
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MovieTopAppBar(
+fun MovieTopBar(
     title: String,
     modifier: Modifier = Modifier
 ) {
-    MediumTopAppBar(
+    TopAppBar(
         title = {
             Text(
                 text = title,
@@ -29,12 +33,25 @@ fun MovieTopAppBar(
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = Colors.blackPrimary
         ),
+        actions = {
+            IconButton(
+                onClick = {
+
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Search,
+                    tint = Colors.white,
+                    contentDescription = stringResource(R.string.top_bar_search_icon)
+                )
+            }
+        },
         modifier = modifier.fillMaxWidth()
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun MovieTopAppBarPreview() {
-    MovieTopAppBar(title = stringResource(R.string.upcoming))
+private fun MovieTopBarPreview() {
+    MovieTopBar(title = stringResource(R.string.upcoming))
 }
