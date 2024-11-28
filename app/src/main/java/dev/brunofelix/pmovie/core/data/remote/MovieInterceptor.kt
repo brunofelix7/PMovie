@@ -11,7 +11,7 @@ class MovieInterceptor : Interceptor {
 
         val url = request.url.newBuilder()
             .addQueryParameter("api_key", BuildConfig.API_KEY)
-            .addQueryParameter("language", "pt-BR")
+            .addQueryParameter("language", BuildConfig.LANGUAGE)
             .build()
 
         val newRequest = request.newBuilder()

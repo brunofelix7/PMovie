@@ -17,4 +17,7 @@
     <!-- Error messages -->
     <string name="error">Oops!</string>
     <string name="connection_error">Please, check or internet connection.</string>
+
+    <!-- Content descriptions -->
+    <string name="navbar_icon">Navbar icon</string>
 </resources>

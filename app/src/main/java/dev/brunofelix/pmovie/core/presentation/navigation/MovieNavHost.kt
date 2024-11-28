@@ -5,7 +5,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import dev.brunofelix.pmovie.core.presentation.components.navbar.BottomNavItem
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MoviePopularScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieUpcomingScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MoviePopularViewModel
@@ -20,9 +19,9 @@ fun MovieNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = BottomNavItem.Popular.route
+        startDestination = MovieRoute.PopularScreen
     ) {
-        composable(BottomNavItem.Popular.route) {
+        composable<MovieRoute.PopularScreen> {
             MoviePopularScreen(
                 uiState = popularViewModel.uiState,
                 navToMovieDetails = {
@@ -30,7 +29,7 @@ fun MovieNavHost(
                 }
             )
         }
-        composable(BottomNavItem.Upcoming.route) {
+        composable<MovieRoute.UpcomingScreen> {
             MovieUpcomingScreen(
                 uiState = upcomingViewModel.uiState,
                 navToMovieDetails = {
@@ -38,7 +37,7 @@ fun MovieNavHost(
                 }
             )
         }
-        composable(BottomNavItem.Favorite.route) {
+        composable<MovieRoute.FavoritesScreen> {
 
         }
     }

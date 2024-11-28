@@ -17,10 +17,10 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import dev.brunofelix.pmovie.R
-import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
 import dev.brunofelix.pmovie.core.presentation.components.ErrorView
 import dev.brunofelix.pmovie.core.presentation.components.LoadingView
 import dev.brunofelix.pmovie.core.presentation.ui.Colors
+import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
 
 @Composable
 fun MovieContent(
@@ -35,7 +35,7 @@ fun MovieContent(
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),
             contentPadding = paddingValues,
-            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+            horizontalArrangement = Arrangement.spacedBy(0.dp, Alignment.CenterHorizontally),
             verticalArrangement = Arrangement.Center,
             modifier = Modifier.fillMaxSize()
         ) {

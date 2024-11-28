@@ -16,7 +16,7 @@
         android:theme="@style/Theme.PMovie"
         tools:targetApi="35">
         <activity
-            android:name=".core.presentation.view.main.MainActivity"
+            android:name=".core.presentation.view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.PMovie">
             <intent-filter>

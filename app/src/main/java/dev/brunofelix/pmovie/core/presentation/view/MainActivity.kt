@@ -1,4 +1,4 @@
-package dev.brunofelix.pmovie.core.presentation.view.main
+package dev.brunofelix.pmovie.core.presentation.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
