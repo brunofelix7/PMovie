@@ -1,4 +1,4 @@
-package me.brunofelix.pmovie.core.domain.model
+package me.brunofelix.pmovie.feature.movie.domain.model
 
 data class Genre(
     val id: Int,

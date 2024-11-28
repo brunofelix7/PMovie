@@ -1,7 +1,7 @@
 package me.brunofelix.pmovie.core.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
-import me.brunofelix.pmovie.core.domain.model.Genre
+import me.brunofelix.pmovie.feature.movie.domain.model.Genre
 
 data class GenreDto(
     @SerializedName("id")

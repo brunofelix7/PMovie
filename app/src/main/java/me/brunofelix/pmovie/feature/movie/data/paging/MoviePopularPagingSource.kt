@@ -2,7 +2,7 @@ package me.brunofelix.pmovie.feature.movie.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import me.brunofelix.pmovie.core.domain.model.Movie
+import me.brunofelix.pmovie.feature.movie.domain.model.Movie
 import me.brunofelix.pmovie.core.util.logError
 import me.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
 import retrofit2.HttpException
