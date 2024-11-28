@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
+    alias(libs.plugins.compose.compiler)
 }
 
 val apiKeyFile = rootProject.file("apiKey.properties")
@@ -14,12 +15,12 @@ properties.load(FileInputStream(apiKeyFile))
 
 android {
     namespace = "me.brunofelix.pmovie"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "me.brunofelix.pmovie"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -120,6 +121,9 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
+
+    // App Compat
+    implementation(libs.androidx.appcompat)
 
     // Tests
     testImplementation(libs.junit)
