@@ -14,11 +14,11 @@ val properties = Properties()
 properties.load(FileInputStream(apiKeyFile))
 
 android {
-    namespace = "me.brunofelix.pmovie"
+    namespace = "dev.brunofelix.pmovie"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "me.brunofelix.pmovie"
+        applicationId = "dev.brunofelix.pmovie"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
