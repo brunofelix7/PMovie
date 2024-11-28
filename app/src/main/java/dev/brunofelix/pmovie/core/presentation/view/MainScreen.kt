@@ -9,8 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import dev.brunofelix.pmovie.core.navigation.MovieNavHost
+import dev.brunofelix.pmovie.core.navigation.currentRoute
 import dev.brunofelix.pmovie.core.presentation.components.navbar.BottomNavBar
-import dev.brunofelix.pmovie.core.presentation.navigation.MovieNavHost
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -18,7 +19,9 @@ fun MainScreen(navController: NavHostController) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            BottomNavBar(navController)
+            if (currentRoute(navController)?.contains("DetailsScreen") == false) {
+                BottomNavBar(navController)
+            }
         },
         content = {
             MovieNavHost(navController)
