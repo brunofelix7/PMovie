@@ -14,7 +14,7 @@ class GetMovieDetailsUseCase @Inject constructor(
         try {
             emit(repository.getDetails(id))
         } catch (e: Exception) {
-            throw RemoteException("Error fetching movie details")
+            throw RemoteException("We couldn't load the details for this movie. Please check your internet connection.")
         }
     }
 }

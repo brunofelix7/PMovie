@@ -66,7 +66,7 @@ fun MovieContent(
                         loadState.refresh is LoadState.Error -> {
                             item(span = { GridItemSpan(maxLineSpan) }) {
                                 ErrorView(
-                                    message = stringResource(R.string.connection_error),
+                                    message = stringResource(R.string.error_message),
                                     onRetry = { retry() }
                                 )
                             }
@@ -74,7 +74,7 @@ fun MovieContent(
                         loadState.append is LoadState.Error -> {
                             item(span = { GridItemSpan(maxLineSpan) }) {
                                 ErrorView(
-                                    message = stringResource(R.string.error),
+                                    message = stringResource(R.string.error_title),
                                     onRetry = { retry() }
                                 )
                             }

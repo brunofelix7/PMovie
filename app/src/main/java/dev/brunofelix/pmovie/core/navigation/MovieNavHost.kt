@@ -8,7 +8,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.toRoute
-import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieDetailsState
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieDetailsScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MoviePopularScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieUpcomingScreen
@@ -24,6 +23,9 @@ fun MovieNavHost(
         navController = navController,
         startDestination = MovieRoute.PopularScreen
     ) {
+        /**
+         * Popular movies screen
+         */
         composable<MovieRoute.PopularScreen>{
             MoviePopularScreen(
                 uiState = viewModel.popularMovies,
@@ -33,6 +35,10 @@ fun MovieNavHost(
                 }
             )
         }
+
+        /**
+         * Upcoming movies screen
+         */
         composable<MovieRoute.UpcomingScreen>{
             MovieUpcomingScreen(
                 uiState = viewModel.upcomingMovies,
@@ -42,9 +48,17 @@ fun MovieNavHost(
                 }
             )
         }
+
+        /**
+         * Favorite movies screen
+         */
         composable<MovieRoute.FavoritesScreen>{
             // TODO: Add favorites screen
         }
+
+        /**
+         * Details screen
+         */
         composable<MovieRoute.DetailsScreen>(
             enterTransition = TransitionAnimation.enterTransition,
             exitTransition = TransitionAnimation.exitTransition,
