@@ -30,7 +30,9 @@ fun MovieContent(
     onClick: (id: Int) -> Unit
 ) {
     Box(
-        modifier = modifier.background(Colors.blackPrimary)
+        modifier = modifier
+            .background(Colors.blackPrimary)
+            .fillMaxSize()
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),

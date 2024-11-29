@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -28,7 +27,7 @@ import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieDetailsState
 @Composable
 fun MovieDetailsCoverImage(
     modifier: Modifier = Modifier,
-    uiState: MovieDetailsState?
+    uiState: MovieDetailsState
 ) {
     val imageUrl = remember { mutableStateOf<String?>("") }
 
@@ -39,9 +38,8 @@ fun MovieDetailsCoverImage(
             shape = RoundedCornerShape(6.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
             modifier = Modifier
-                .height(200.dp)
+                .height(180.dp)
                 .fillMaxWidth()
-                .padding(4.dp)
         ) {
             Box(
                 contentAlignment = Alignment.Center
@@ -51,7 +49,7 @@ fun MovieDetailsCoverImage(
                         .data(imageUrl.value)
                         .crossfade(true)
                         .build(),
-                    contentScale = ContentScale.FillHeight,
+                    contentScale = ContentScale.Crop,
                     contentDescription = "",
                     modifier = Modifier
                         .fillMaxWidth()
@@ -59,20 +57,18 @@ fun MovieDetailsCoverImage(
                         .background(Colors.blackPrimary)
                         .clip(RoundedCornerShape(6.dp))
                 )
-                uiState?.let {
-                    when (it) {
-                        is MovieDetailsState.Loading -> {
-                            LoadingView()
-                        }
-                        is MovieDetailsState.Success -> {
-                            imageUrl.value = it.movie?.imageUrl
-                            if (imageUrl.value?.isEmpty() == true) {
-                                EmptyImage()
-                            }
-                        }
-                        is MovieDetailsState.Error -> {
+                when (uiState) {
+                    is MovieDetailsState.Loading -> {
+                        LoadingView()
+                    }
+                    is MovieDetailsState.Success -> {
+                        imageUrl.value = uiState.movie?.imageUrl
+                        if (imageUrl.value?.isEmpty() == true) {
                             EmptyImage()
                         }
+                    }
+                    is MovieDetailsState.Error -> {
+                        EmptyImage()
                     }
                 }
             }

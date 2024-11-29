@@ -16,16 +16,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import dev.brunofelix.pmovie.core.util.extension.formatDecimal
 import dev.brunofelix.pmovie.core.presentation.ui.Colors
+import dev.brunofelix.pmovie.core.util.extension.formatDecimal
 
 @Composable
 fun MovieRate(
-    rate: Float,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    fontSize: TextUnit = 10.sp,
+    rate: Float
 ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -33,7 +36,7 @@ fun MovieRate(
         modifier = Modifier
             .clip(shape = RoundedCornerShape(8.dp))
             .background(color = Colors.blackPrimary)
-            .padding(horizontal = 6.dp)
+            .padding(horizontal = 8.dp)
     ) {
         Icon(
             imageVector = Icons.Default.Star,
@@ -45,7 +48,8 @@ fun MovieRate(
             text = if (rate <= 0) "--" else rate.formatDecimal(),
             style = MaterialTheme.typography.bodyMedium,
             color = Color.White,
-            fontSize = 10.sp
+            fontWeight = FontWeight.Normal,
+            fontSize = fontSize
         )
     }
 }

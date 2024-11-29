@@ -1,5 +1,6 @@
 package dev.brunofelix.pmovie.feature.movie.presentation.components.details
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,6 +16,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import dev.brunofelix.pmovie.core.presentation.components.EmptyImage
 import dev.brunofelix.pmovie.core.presentation.components.LoadingView
+import dev.brunofelix.pmovie.core.presentation.ui.Colors
 import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieDetailsState
 
 @Composable
@@ -25,7 +27,7 @@ fun MovieDetailsBackdropImage(
     val backdropPath = remember { mutableStateOf<String?>("") }
 
     Box(
-        modifier = modifier,
+        modifier = modifier.background(Colors.blackPrimary),
         contentAlignment = Alignment.Center
     ) {
         AsyncImage(
