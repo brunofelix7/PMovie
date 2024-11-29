@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.brunofelix.pmovie.feature.movie.domain.usecase.GetPopularMoviesUseCase
+import dev.brunofelix.pmovie.feature.movie.domain.use_case.GetPopularMoviesUseCase
 import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieState
 import javax.inject.Inject
 

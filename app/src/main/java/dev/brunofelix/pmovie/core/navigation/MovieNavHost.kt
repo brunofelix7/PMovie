@@ -11,6 +11,7 @@ import androidx.navigation.toRoute
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieDetailsScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MoviePopularScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieUpcomingScreen
+import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MovieDetailsViewModel
 import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MoviePopularViewModel
 import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MovieUpcomingViewModel
 
@@ -20,6 +21,7 @@ fun MovieNavHost(
 ) {
     val popularViewModel: MoviePopularViewModel = hiltViewModel()
     val upcomingViewModel: MovieUpcomingViewModel = hiltViewModel()
+    val detailsViewModel: MovieDetailsViewModel = hiltViewModel()
 
     NavHost(
         navController = navController,
@@ -28,16 +30,18 @@ fun MovieNavHost(
         composable<MovieRoute.PopularScreen>{
             MoviePopularScreen(
                 uiState = popularViewModel.uiState,
-                onItemClick = {
-                    navController.navigate(MovieRoute.DetailsScreen(it))
+                onItemClick = { movieId ->
+                    detailsViewModel.getDetails(movieId)
+                    navController.navigate(MovieRoute.DetailsScreen(movieId))
                 }
             )
         }
         composable<MovieRoute.UpcomingScreen>{
             MovieUpcomingScreen(
                 uiState = upcomingViewModel.uiState,
-                onItemClick = {
-                    navController.navigate(MovieRoute.DetailsScreen(it))
+                onItemClick = { movieId ->
+                    detailsViewModel.getDetails(movieId)
+                    navController.navigate(MovieRoute.DetailsScreen(movieId))
                 }
             )
         }
@@ -53,6 +57,7 @@ fun MovieNavHost(
             val route = backStackEntry.toRoute<MovieRoute.DetailsScreen>()
             MovieDetailsScreen(
                 movieId = route.movieId,
+                uiState = detailsViewModel.movie.value,
                 onBackClick = {
                     navController.popBackStack()
                 }

@@ -5,14 +5,13 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.brunofelix.pmovie.core.data.remote.MovieApi
-import dev.brunofelix.pmovie.feature.movie.data.repository.MovieRepositoryImpl
-import dev.brunofelix.pmovie.feature.movie.data.source.MovieRemoteDataSourceImpl
+import dev.brunofelix.pmovie.core.data.remote.repository.MovieRepositoryImpl
+import dev.brunofelix.pmovie.core.data.remote.source.MovieRemoteDataSourceImpl
 import dev.brunofelix.pmovie.feature.movie.domain.repository.MovieRepository
 import dev.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
-import dev.brunofelix.pmovie.feature.movie.domain.usecase.GetPopularMoviesUseCase
-import dev.brunofelix.pmovie.feature.movie.domain.usecase.GetPopularMoviesUseCaseImpl
-import dev.brunofelix.pmovie.feature.movie.domain.usecase.GetUpcomingMoviesUseCase
-import dev.brunofelix.pmovie.feature.movie.domain.usecase.GetUpcomingMoviesUseCaseImpl
+import dev.brunofelix.pmovie.feature.movie.domain.use_case.GetMovieDetailsUseCase
+import dev.brunofelix.pmovie.feature.movie.domain.use_case.GetPopularMoviesUseCase
+import dev.brunofelix.pmovie.feature.movie.domain.use_case.GetUpcomingMoviesUseCase
 import javax.inject.Singleton
 
 @Module
@@ -34,12 +33,18 @@ object MovieModule {
     @Provides
     @Singleton
     fun provideGetPopularMoviesUseCase(repository: MovieRepository): GetPopularMoviesUseCase {
-        return GetPopularMoviesUseCaseImpl(repository)
+        return GetPopularMoviesUseCase(repository)
     }
 
     @Provides
     @Singleton
     fun provideGetUpcomingMoviesUseCase(repository: MovieRepository): GetUpcomingMoviesUseCase {
-        return GetUpcomingMoviesUseCaseImpl(repository)
+        return GetUpcomingMoviesUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetMovieDetailsUseCase(repository: MovieRepository): GetMovieDetailsUseCase {
+        return GetMovieDetailsUseCase(repository)
     }
 }

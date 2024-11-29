@@ -1,12 +1,12 @@
-package dev.brunofelix.pmovie.feature.movie.data.repository
+package dev.brunofelix.pmovie.core.data.remote.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import kotlinx.coroutines.flow.Flow
 import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
 import dev.brunofelix.pmovie.feature.movie.domain.repository.MovieRepository
 import dev.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(
@@ -30,4 +30,6 @@ class MovieRepositoryImpl @Inject constructor(
             }
         ).flow
     }
+
+    override suspend fun getDetails(id: Int) = dataSource.getDetails(id).body()?.toMovie()
 }

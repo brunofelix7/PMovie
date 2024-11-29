@@ -7,12 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dev.brunofelix.pmovie.feature.movie.presentation.components.MovieDetailsTopBar
+import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieDetailsState
 
 @Composable
 fun MovieDetailsScreen(
     movieId: Int,
     modifier: Modifier = Modifier,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    uiState: MovieDetailsState?
 ) {
     Scaffold(
         topBar = {
@@ -22,7 +24,7 @@ fun MovieDetailsScreen(
         },
         content = { innerPadding ->
             Text(
-                text = "ID= $movieId",
+                text = "uiState= $uiState",
                 modifier = Modifier.padding(innerPadding)
             )
         }
