@@ -11,17 +11,13 @@ import androidx.navigation.toRoute
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieDetailsScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MoviePopularScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieUpcomingScreen
-import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MovieDetailsViewModel
-import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MoviePopularViewModel
-import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MovieUpcomingViewModel
+import dev.brunofelix.pmovie.feature.movie.presentation.viewmodel.MovieViewModel
 
 @Composable
 fun MovieNavHost(
     navController: NavHostController
 ) {
-    val popularViewModel: MoviePopularViewModel = hiltViewModel()
-    val upcomingViewModel: MovieUpcomingViewModel = hiltViewModel()
-    val detailsViewModel: MovieDetailsViewModel = hiltViewModel()
+    val viewModel: MovieViewModel = hiltViewModel()
 
     NavHost(
         navController = navController,
@@ -29,18 +25,18 @@ fun MovieNavHost(
     ) {
         composable<MovieRoute.PopularScreen>{
             MoviePopularScreen(
-                uiState = popularViewModel.uiState,
+                uiState = viewModel.popularMovies,
                 onItemClick = { movieId ->
-                    detailsViewModel.getDetails(movieId)
+                    viewModel.getDetails(movieId)
                     navController.navigate(MovieRoute.DetailsScreen(movieId))
                 }
             )
         }
         composable<MovieRoute.UpcomingScreen>{
             MovieUpcomingScreen(
-                uiState = upcomingViewModel.uiState,
+                uiState = viewModel.upcomingMovies,
                 onItemClick = { movieId ->
-                    detailsViewModel.getDetails(movieId)
+                    viewModel.getDetails(movieId)
                     navController.navigate(MovieRoute.DetailsScreen(movieId))
                 }
             )
@@ -57,7 +53,7 @@ fun MovieNavHost(
             val route = backStackEntry.toRoute<MovieRoute.DetailsScreen>()
             MovieDetailsScreen(
                 movieId = route.movieId,
-                uiState = detailsViewModel.movie.value,
+                uiState = viewModel.movieDetails.value,
                 onBackClick = {
                     navController.popBackStack()
                 }
