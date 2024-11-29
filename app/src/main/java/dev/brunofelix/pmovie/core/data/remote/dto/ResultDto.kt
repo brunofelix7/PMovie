@@ -1,8 +1,8 @@
 package dev.brunofelix.pmovie.core.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
-import dev.brunofelix.pmovie.core.extension.toBackdropUrl
-import dev.brunofelix.pmovie.core.extension.toPostUrl
+import dev.brunofelix.pmovie.core.util.extension.toBackdropUrl
+import dev.brunofelix.pmovie.core.util.extension.toPostUrl
 import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
 import dev.brunofelix.pmovie.feature.movie.domain.model.MovieDetails
 

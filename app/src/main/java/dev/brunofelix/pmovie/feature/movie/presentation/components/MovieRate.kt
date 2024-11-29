@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import dev.brunofelix.pmovie.core.extension.formatDecimal
+import dev.brunofelix.pmovie.core.util.extension.formatDecimal
 import dev.brunofelix.pmovie.core.presentation.ui.Colors
 
 @Composable

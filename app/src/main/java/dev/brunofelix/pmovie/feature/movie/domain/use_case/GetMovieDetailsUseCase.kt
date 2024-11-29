@@ -1,6 +1,6 @@
 package dev.brunofelix.pmovie.feature.movie.domain.use_case
 
-import dev.brunofelix.pmovie.core.exception.RemoteException
+import dev.brunofelix.pmovie.core.util.exception.RemoteException
 import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
 import dev.brunofelix.pmovie.feature.movie.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow

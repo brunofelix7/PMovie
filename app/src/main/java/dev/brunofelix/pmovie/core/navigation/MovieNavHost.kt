@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.toRoute
+import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieDetailsState
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieDetailsScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MoviePopularScreen
 import dev.brunofelix.pmovie.feature.movie.presentation.view.MovieUpcomingScreen

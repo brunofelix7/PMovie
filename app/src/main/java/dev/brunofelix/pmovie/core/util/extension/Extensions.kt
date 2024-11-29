@@ -1,4 +1,4 @@
-package dev.brunofelix.pmovie.core.extension
+package dev.brunofelix.pmovie.core.util.extension
 
 import dev.brunofelix.pmovie.BuildConfig
 
