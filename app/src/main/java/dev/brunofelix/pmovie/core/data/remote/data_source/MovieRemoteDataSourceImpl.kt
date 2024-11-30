@@ -1,14 +1,15 @@
-package dev.brunofelix.pmovie.core.data.remote.source
+package dev.brunofelix.pmovie.core.data.remote.data_source
 
 import dev.brunofelix.pmovie.core.data.remote.MovieApi
 import dev.brunofelix.pmovie.core.data.remote.paging.MoviePopularPagingSource
 import dev.brunofelix.pmovie.core.data.remote.paging.MovieUpcomingPagingSource
-import dev.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
+import dev.brunofelix.pmovie.feature.movie.domain.data_source.MovieRemoteDataSource
 import javax.inject.Inject
 
 class MovieRemoteDataSourceImpl @Inject constructor(
     private val api: MovieApi
 ) : MovieRemoteDataSource {
+
     override fun getPopularPagingSource() = MoviePopularPagingSource(this)
 
     override fun getUpcomingPagingSource() = MovieUpcomingPagingSource(this)
@@ -17,5 +18,5 @@ class MovieRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getUpcoming(page: Int) = api.getUpcoming(page)
 
-    override suspend fun getDetails(id: Int) = api.getDetails(id)
+    override suspend fun getDetails(id: Long) = api.getDetails(id)
 }

@@ -21,7 +21,7 @@ interface MovieApi {
 
     @GET("movie/{id}")
     suspend fun getDetails(
-        @Path("id") id: Int
+        @Path("id") id: Long
     ): Response<ResultDto>
 
     @GET("search/movie")

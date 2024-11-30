@@ -11,7 +11,7 @@ class GetPopularMoviesUseCase @Inject constructor(
     private val repository: MovieRepository
 ) {
     operator fun invoke(): Flow<PagingData<Movie>> {
-        return repository.getPopular(
+        return repository.fetchPopulars(
             pagingConfig = PagingConfig(
                 pageSize = 20,
                 initialLoadSize = 20

@@ -27,7 +27,7 @@ fun MovieContent(
     modifier: Modifier = Modifier,
     paging: LazyPagingItems<Movie>?,
     paddingValues: PaddingValues,
-    onClick: (id: Int) -> Unit
+    onClick: (id: Long) -> Unit
 ) {
     Box(
         modifier = modifier

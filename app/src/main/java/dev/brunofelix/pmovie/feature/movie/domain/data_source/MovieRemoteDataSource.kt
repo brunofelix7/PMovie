@@ -1,4 +1,4 @@
-package dev.brunofelix.pmovie.feature.movie.domain.source
+package dev.brunofelix.pmovie.feature.movie.domain.data_source
 
 import dev.brunofelix.pmovie.core.data.remote.dto.MovieDto
 import dev.brunofelix.pmovie.core.data.remote.dto.ResultDto
@@ -15,5 +15,5 @@ interface MovieRemoteDataSource {
 
     suspend fun getUpcoming(page: Int): Response<MovieDto>
 
-    suspend fun getDetails(id: Int): Response<ResultDto>
+    suspend fun getDetails(id: Long): Response<ResultDto>
 }

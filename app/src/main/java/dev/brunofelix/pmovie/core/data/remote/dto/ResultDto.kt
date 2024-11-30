@@ -8,7 +8,7 @@ import dev.brunofelix.pmovie.feature.movie.domain.model.MovieDetails
 
 data class ResultDto(
     @SerializedName("id")
-    val id: Int?,
+    val id: Long?,
 
     @SerializedName("title")
     val title: String?,
@@ -78,7 +78,7 @@ data class ResultDto(
 ) {
     fun toMovie(): Movie {
         return Movie(
-            id = id ?: -1,
+            id = id ?: -1L,
             title = title ?: "Undefined",
             imageUrl = posterPath?.toPostUrl() ?: "",
             voteAverage = voteAverage ?: -1.0F,

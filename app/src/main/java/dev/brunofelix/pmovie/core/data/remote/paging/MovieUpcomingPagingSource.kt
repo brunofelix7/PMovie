@@ -4,7 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
 import dev.brunofelix.pmovie.core.util.logError
-import dev.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
+import dev.brunofelix.pmovie.feature.movie.domain.data_source.MovieRemoteDataSource
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject

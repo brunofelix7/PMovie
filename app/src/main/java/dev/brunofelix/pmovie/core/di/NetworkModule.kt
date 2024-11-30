@@ -7,10 +7,13 @@ import dagger.hilt.components.SingletonComponent
 import dev.brunofelix.pmovie.BuildConfig
 import dev.brunofelix.pmovie.core.data.remote.MovieApi
 import dev.brunofelix.pmovie.core.data.remote.MovieInterceptor
+import dev.brunofelix.pmovie.core.data.remote.data_source.MovieRemoteDataSourceImpl
+import dev.brunofelix.pmovie.feature.movie.domain.data_source.MovieRemoteDataSource
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -63,5 +66,11 @@ object NetworkModule {
             .addConverterFactory(converterFactory)
             .build()
             .create(MovieApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieRemoteDataSource(api: MovieApi): MovieRemoteDataSource {
+        return MovieRemoteDataSourceImpl(api)
     }
 }

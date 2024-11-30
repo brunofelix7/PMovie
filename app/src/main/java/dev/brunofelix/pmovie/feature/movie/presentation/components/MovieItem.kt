@@ -33,7 +33,7 @@ import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieItemState
 fun MovieItem(
     movie: Movie,
     modifier: Modifier = Modifier,
-    onItemClick: (id: Int) -> Unit
+    onItemClick: (id: Long) -> Unit
 ) {
     val uiState = remember {
         mutableStateOf<MovieItemState>(MovieItemState.Loading)
@@ -110,7 +110,7 @@ fun MovieItem(
 @Preview(showBackground = true)
 @Composable
 private fun MovieItemPreview() {
-    val movie = Movie(id = 1, title = "Movie 1", imageUrl = "", voteAverage = 9.1F)
+    val movie = Movie(id = 1L, title = "Movie 1", imageUrl = "", voteAverage = 9.1F)
     MovieItem(movie) {
 
     }

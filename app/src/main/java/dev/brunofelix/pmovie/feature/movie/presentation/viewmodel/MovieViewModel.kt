@@ -40,7 +40,7 @@ class MovieViewModel @Inject constructor(
         )
     }
 
-    fun getDetails(movieId: Int) = viewModelScope.launch {
+    fun getDetails(movieId: Long) = viewModelScope.launch {
         useCase.getMovieDetails.invoke(movieId)
             .onStart {
                 _movieDetails.value = MovieDetailsState.Loading

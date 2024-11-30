@@ -10,7 +10,7 @@ import javax.inject.Inject
 class GetMovieDetailsUseCase @Inject constructor(
     private val repository: MovieRepository
 ) {
-    suspend operator fun invoke(id: Int): Flow<Movie?> = flow {
+    suspend operator fun invoke(id: Long): Flow<Movie?> = flow {
         try {
             emit(repository.getDetails(id))
         } catch (e: Exception) {

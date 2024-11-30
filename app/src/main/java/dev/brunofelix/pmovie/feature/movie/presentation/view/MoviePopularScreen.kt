@@ -12,7 +12,7 @@ import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieState
 @Composable
 fun MoviePopularScreen(
     uiState: MovieState,
-    onItemClick: (id: Int) -> Unit
+    onItemClick: (id: Long) -> Unit
 ) {
     val movies = uiState.popularMovies.collectAsLazyPagingItems()
 

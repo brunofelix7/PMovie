@@ -4,11 +4,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.brunofelix.pmovie.core.data.remote.MovieApi
-import dev.brunofelix.pmovie.core.data.remote.repository.MovieRepositoryImpl
-import dev.brunofelix.pmovie.core.data.remote.source.MovieRemoteDataSourceImpl
+import dev.brunofelix.pmovie.core.data.repository.MovieRepositoryImpl
+import dev.brunofelix.pmovie.feature.movie.domain.data_source.MovieLocalDataSource
+import dev.brunofelix.pmovie.feature.movie.domain.data_source.MovieRemoteDataSource
 import dev.brunofelix.pmovie.feature.movie.domain.repository.MovieRepository
-import dev.brunofelix.pmovie.feature.movie.domain.source.MovieRemoteDataSource
 import dev.brunofelix.pmovie.feature.movie.domain.use_case.GetMovieDetailsUseCase
 import dev.brunofelix.pmovie.feature.movie.domain.use_case.GetPopularMoviesUseCase
 import dev.brunofelix.pmovie.feature.movie.domain.use_case.GetUpcomingMoviesUseCase
@@ -20,14 +19,11 @@ object MovieModule {
 
     @Provides
     @Singleton
-    fun provideMovieRemoteDataSource(api: MovieApi): MovieRemoteDataSource {
-        return MovieRemoteDataSourceImpl(api)
-    }
-
-    @Provides
-    @Singleton
-    fun provideMovieRepository(dataSource: MovieRemoteDataSource): MovieRepository {
-        return MovieRepositoryImpl(dataSource)
+    fun provideMovieRepository(
+        remoteDataSource: MovieRemoteDataSource,
+        localDataSource: MovieLocalDataSource
+    ): MovieRepository {
+        return MovieRepositoryImpl(remoteDataSource, localDataSource)
     }
 
     @Provides

@@ -11,7 +11,7 @@ class GetUpcomingMoviesUseCase @Inject constructor(
     private val repository: MovieRepository
 ) {
     operator fun invoke(): Flow<PagingData<Movie>> {
-        return repository.getUpcoming(
+        return repository.fetchUpcoming(
             pagingConfig = PagingConfig(
                 pageSize = 20,
                 initialLoadSize = 20

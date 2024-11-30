@@ -14,7 +14,7 @@ import dev.brunofelix.pmovie.feature.movie.presentation.state.MovieDetailsState
 
 @Composable
 fun MovieDetailsScreen(
-    movieId: Int,
+    movieId: Long,
     modifier: Modifier = Modifier,
     onBackClick: () -> Unit,
     uiState: MovieDetailsState?
