@@ -3,6 +3,7 @@ package dev.brunofelix.pmovie.feature.movie.presentation.components
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -43,6 +44,17 @@ fun MovieTopBar(
                     imageVector = Icons.Filled.Search,
                     tint = Colors.white,
                     contentDescription = stringResource(R.string.top_bar_search_icon)
+                )
+            }
+            IconButton(
+                onClick = {
+
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Settings,
+                    tint = Colors.white,
+                    contentDescription = stringResource(R.string.top_bar_settings_icon)
                 )
             }
         },

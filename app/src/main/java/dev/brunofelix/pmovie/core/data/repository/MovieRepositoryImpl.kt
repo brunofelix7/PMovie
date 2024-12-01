@@ -36,16 +36,16 @@ class MovieRepositoryImpl @Inject constructor(
 
     override suspend fun getDetails(id: Long) = remoteDataSource.getDetails(id).body()?.toMovie()
 
-    override suspend fun markAsFavorite(movie: Movie): Long {
-        return localDataSource.insert(movie.toMovieEntity())
+    override suspend fun markAsFavorite(movie: Movie) {
+        localDataSource.insert(movie.toMovieEntity())
     }
 
-    override suspend fun deleteFromFavorites(movie: Movie): Int {
-        return localDataSource.delete(movie.toMovieEntity())
+    override suspend fun deleteFromFavorites(movie: Movie) {
+        localDataSource.delete(movie.toMovieEntity())
     }
 
-    override suspend fun isFavorite(id: Long): Movie? {
-        return localDataSource.getById(id)?.toMovie()
+    override suspend fun isFavorite(id: Long): Boolean {
+        return localDataSource.getById(id)?.toMovie() != null
     }
 
     override fun fetchFavorites(): Flow<List<Movie>?> {

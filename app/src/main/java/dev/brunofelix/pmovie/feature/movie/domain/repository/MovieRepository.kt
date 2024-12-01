@@ -12,11 +12,11 @@ interface MovieRepository {
 
     suspend fun getDetails(id: Long): Movie?
 
-    suspend fun markAsFavorite(movie: Movie): Long
+    suspend fun markAsFavorite(movie: Movie)
 
-    suspend fun deleteFromFavorites(movie: Movie): Int
+    suspend fun deleteFromFavorites(movie: Movie)
 
-    suspend fun isFavorite(id: Long): Movie?
+    suspend fun isFavorite(id: Long): Boolean
 
     fun fetchFavorites(): Flow<List<Movie>?>
 }
