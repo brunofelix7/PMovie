@@ -16,7 +16,7 @@ object RoomModuleTest {
 
     @Provides
     @Named("test_db")
-    fun provideInMemoryDb(@ApplicationContext context: Context) =
+    fun provideMovieDatabaseTest(@ApplicationContext context: Context) =
         Room.inMemoryDatabaseBuilder(context, MovieDatabase::class.java)
             .allowMainThreadQueries()
             .build()

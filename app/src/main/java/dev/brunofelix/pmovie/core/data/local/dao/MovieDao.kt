@@ -20,6 +20,6 @@ interface MovieDao {
     @Query("SELECT * FROM movies WHERE id = :id")
     suspend fun getById(id: Long): MovieEntity?
 
-    @Query("SELECT * FROM movies")
+    @Query("SELECT * FROM movies ORDER BY title ASC")
     fun getAll(): Flow<List<MovieEntity>?>
 }
