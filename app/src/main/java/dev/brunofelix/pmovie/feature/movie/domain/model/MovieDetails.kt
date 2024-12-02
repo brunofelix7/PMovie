@@ -1,10 +1,10 @@
 package dev.brunofelix.pmovie.feature.movie.domain.model
 
 data class MovieDetails(
-    val genres: List<Genre>?,
-    val overview: String,
-    val backdropPath: String,
-    val releaseDate: String,
-    val duration: Int,
-    val voteCount: Int,
+    val genres: List<Genre>? = emptyList(),
+    val overview: String = "",
+    val backdropPath: String = "",
+    val releaseDate: String = "",
+    val duration: Int = 0,
+    val voteCount: Int = 0,
 )

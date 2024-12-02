@@ -22,9 +22,6 @@ class MovieViewModel @Inject constructor(
     private val useCase: MovieUseCase
 ): ViewModel() {
 
-    private val _movieDetails = MutableLiveData<MovieDetailsState>()
-    val movieDetails: LiveData<MovieDetailsState> get() = _movieDetails
-
     var popularMovies by mutableStateOf(MovieState())
         private set
 
@@ -39,6 +36,9 @@ class MovieViewModel @Inject constructor(
             upcomingMovies = useCase.getUpcomingMovies.invoke().cachedIn(viewModelScope)
         )
     }
+
+    private val _movieDetails = MutableLiveData<MovieDetailsState>()
+    val movieDetails: LiveData<MovieDetailsState> get() = _movieDetails
 
     fun getDetails(movieId: Long) = viewModelScope.launch {
         useCase.getMovieDetails.invoke(movieId)

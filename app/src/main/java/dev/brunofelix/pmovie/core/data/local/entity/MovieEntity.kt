@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
+import dev.brunofelix.pmovie.feature.movie.domain.model.MovieDetails
 
 @Entity(tableName = "movies")
 data class MovieEntity(
@@ -14,13 +15,23 @@ data class MovieEntity(
     val title: String,
 
     @ColumnInfo(name = "imageUrl")
-    val imageUrl: String
+    val imageUrl: String,
+
+    @ColumnInfo(name = "voteAverage")
+    val voteAverage: Float,
+
+    @ColumnInfo(name = "duration")
+    val duration: Int
 ) {
     fun toMovie(): Movie {
         return Movie(
             id = id,
             title = title,
-            imageUrl = imageUrl
+            imageUrl = imageUrl,
+            voteAverage = voteAverage,
+            details = MovieDetails(
+                duration = duration
+            )
         )
     }
 }

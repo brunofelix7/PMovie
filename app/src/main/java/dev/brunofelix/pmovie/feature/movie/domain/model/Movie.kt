@@ -13,7 +13,9 @@ data class Movie(
         return MovieEntity(
             id = id,
             title = title,
-            imageUrl = imageUrl
+            imageUrl = imageUrl,
+            voteAverage = voteAverage,
+            duration = details?.duration ?: -1
         )
     }
 }
