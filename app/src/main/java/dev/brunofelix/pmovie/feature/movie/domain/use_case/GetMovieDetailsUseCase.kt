@@ -7,10 +7,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetMovieDetailsUseCase @Inject constructor(
+interface GetMovieDetailsUseCase {
+    suspend operator fun invoke(id: Long): Flow<Movie?>
+}
+
+class GetMovieDetailsUseCaseImpl @Inject constructor(
     private val repository: MovieRepository
-) {
-    suspend operator fun invoke(id: Long): Flow<Movie?> = flow {
+) : GetMovieDetailsUseCase {
+    override suspend operator fun invoke(id: Long): Flow<Movie?> = flow {
         try {
             emit(repository.getDetails(id))
         } catch (e: Exception) {

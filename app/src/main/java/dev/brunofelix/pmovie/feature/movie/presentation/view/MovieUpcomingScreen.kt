@@ -14,7 +14,7 @@ fun MovieUpcomingScreen(
     uiState: MovieState,
     onItemClick: (id: Long) -> Unit
 ) {
-    val movies = uiState.upcomingMovies.collectAsLazyPagingItems()
+    val movies = uiState.upcoming.collectAsLazyPagingItems()
 
     Scaffold(
         topBar = {

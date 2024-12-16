@@ -28,7 +28,7 @@ fun MovieNavHost(
          */
         composable<MovieRoute.PopularScreen>{
             MoviePopularScreen(
-                uiState = viewModel.popularMovies,
+                uiState = viewModel.popularsUiState,
                 onItemClick = { movieId ->
                     viewModel.getDetails(movieId)
                     navController.navigate(MovieRoute.DetailsScreen(movieId))
@@ -41,7 +41,7 @@ fun MovieNavHost(
          */
         composable<MovieRoute.UpcomingScreen>{
             MovieUpcomingScreen(
-                uiState = viewModel.upcomingMovies,
+                uiState = viewModel.upcomingUiState,
                 onItemClick = { movieId ->
                     viewModel.getDetails(movieId)
                     navController.navigate(MovieRoute.DetailsScreen(movieId))

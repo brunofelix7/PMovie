@@ -7,10 +7,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class DeleteFromFavoritesUseCase @Inject constructor(
+interface DeleteFromFavoritesUseCase {
+    suspend operator fun invoke(movie: Movie): Flow<Unit>
+}
+
+class DeleteFromFavoritesUseCaseImpl @Inject constructor(
     private val repository: MovieRepository
-) {
-    suspend operator fun invoke(movie: Movie): Flow<Unit> = flow {
+) : DeleteFromFavoritesUseCase {
+
+    override suspend operator fun invoke(movie: Movie): Flow<Unit> = flow {
         try {
             emit(repository.deleteFromFavorites(movie))
         } catch (e: Exception) {

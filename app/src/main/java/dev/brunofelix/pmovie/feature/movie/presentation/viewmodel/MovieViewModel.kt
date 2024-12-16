@@ -19,21 +19,21 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(
-    private val useCase: MovieUseCase
+    private val useCase: MovieUseCase,
 ): ViewModel() {
 
-    var popularMovies by mutableStateOf(MovieState())
+    var popularsUiState by mutableStateOf(MovieState())
         private set
 
-    var upcomingMovies by mutableStateOf(MovieState())
+    var upcomingUiState by mutableStateOf(MovieState())
         private set
 
     init {
-        popularMovies = popularMovies.copy(
-            popularMovies = useCase.getPopularMovies.invoke().cachedIn(viewModelScope)
+        popularsUiState = popularsUiState.copy(
+            populars = useCase.getPopularMovies.invoke().cachedIn(viewModelScope)
         )
-        upcomingMovies = upcomingMovies.copy(
-            upcomingMovies = useCase.getUpcomingMovies.invoke().cachedIn(viewModelScope)
+        upcomingUiState = upcomingUiState.copy(
+            upcoming = useCase.getUpcomingMovies.invoke().cachedIn(viewModelScope)
         )
     }
 

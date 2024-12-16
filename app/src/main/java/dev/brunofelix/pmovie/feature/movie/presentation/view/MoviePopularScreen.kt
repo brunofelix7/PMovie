@@ -14,7 +14,7 @@ fun MoviePopularScreen(
     uiState: MovieState,
     onItemClick: (id: Long) -> Unit
 ) {
-    val movies = uiState.popularMovies.collectAsLazyPagingItems()
+    val movies = uiState.populars.collectAsLazyPagingItems()
 
     Scaffold(
         topBar = {

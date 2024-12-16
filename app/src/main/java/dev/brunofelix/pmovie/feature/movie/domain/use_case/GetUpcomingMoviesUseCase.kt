@@ -7,10 +7,15 @@ import dev.brunofelix.pmovie.feature.movie.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetUpcomingMoviesUseCase @Inject constructor(
+interface GetUpcomingMoviesUseCase {
+    operator fun invoke(): Flow<PagingData<Movie>>
+}
+
+class GetUpcomingMoviesUseCaseImpl @Inject constructor(
     private val repository: MovieRepository
-) {
-    operator fun invoke(): Flow<PagingData<Movie>> {
+) : GetUpcomingMoviesUseCase {
+
+    override operator fun invoke(): Flow<PagingData<Movie>> {
         return repository.fetchUpcoming(
             pagingConfig = PagingConfig(
                 pageSize = 20,

@@ -6,10 +6,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class IsFavoriteMovieUseCase @Inject constructor(
+interface IsFavoriteMovieUseCase {
+    suspend operator fun invoke(id: Long): Flow<Boolean>
+}
+
+class IsFavoriteMovieUseCaseImpl @Inject constructor(
     private val repository: MovieRepository
-) {
-    suspend operator fun invoke(id: Long): Flow<Boolean> = flow{
+) : IsFavoriteMovieUseCase {
+
+    override suspend operator fun invoke(id: Long): Flow<Boolean> = flow {
         try {
             emit(repository.isFavorite(id))
         } catch (e: Exception) {
