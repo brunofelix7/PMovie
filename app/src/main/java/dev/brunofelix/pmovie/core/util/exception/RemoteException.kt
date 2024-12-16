@@ -1,3 +1,3 @@
 package dev.brunofelix.pmovie.core.util.exception
 
-class RemoteException(message: String) : RuntimeException(message)
+class RemoteException(message: String? = "") : RuntimeException(message)

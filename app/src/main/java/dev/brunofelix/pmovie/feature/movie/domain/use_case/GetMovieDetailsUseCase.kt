@@ -14,11 +14,12 @@ interface GetMovieDetailsUseCase {
 class GetMovieDetailsUseCaseImpl @Inject constructor(
     private val repository: MovieRepository
 ) : GetMovieDetailsUseCase {
+
     override suspend operator fun invoke(id: Long): Flow<Movie?> = flow {
         try {
             emit(repository.getDetails(id))
         } catch (e: Exception) {
-            throw RemoteException("We couldn't load the details for this movie. Please check your internet connection.")
+            throw RemoteException("We couldn't load the details for this movie.")
         }
     }
 }
