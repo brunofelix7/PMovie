@@ -21,7 +21,9 @@ class FakeMovieRepository (
         TODO("Not yet implemented")
     }
 
-    override suspend fun getDetails(id: Long) = remoteDataSource.getDetails(id).body()?.toMovie()
+    override suspend fun getDetails(id: Long): Movie? {
+        return remoteDataSource.getDetails(id).body()?.toMovie()
+    }
 
     override suspend fun markAsFavorite(movie: Movie) {
         TODO("Not yet implemented")
