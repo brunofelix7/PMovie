@@ -1,4 +1,4 @@
-package dev.brunofelix.core.domain.model.fake
+package dev.brunofelix.pmovie.core.domain.model.fake
 
 sealed class FakeMovie {
     data object JohnWick : FakeMovie()

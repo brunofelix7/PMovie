@@ -1,12 +1,13 @@
-package dev.brunofelix.pmovie.feature.movie.domain.data_source
+package dev.brunofelix.pmovie.core.data.fake.remote.data_source
 
-import dev.brunofelix.core.domain.model.factory.MovieDtoFactory
-import dev.brunofelix.core.domain.model.fake.FakeMovie
 import dev.brunofelix.pmovie.core.data.remote.dto.MovieDto
 import dev.brunofelix.pmovie.core.data.remote.dto.ResultDto
 import dev.brunofelix.pmovie.core.data.remote.paging.MoviePopularPagingSource
 import dev.brunofelix.pmovie.core.data.remote.paging.MovieUpcomingPagingSource
+import dev.brunofelix.pmovie.core.domain.model.fake.factory.MovieDtoFactory
+import dev.brunofelix.pmovie.core.domain.model.fake.FakeMovie
 import dev.brunofelix.pmovie.core.util.exception.RemoteException
+import dev.brunofelix.pmovie.feature.movie.domain.data_source.MovieRemoteDataSource
 import retrofit2.Response
 
 class FakeMovieRemoteDataSource : MovieRemoteDataSource {
@@ -37,6 +38,6 @@ class FakeMovieRemoteDataSource : MovieRemoteDataSource {
         if (shouldReturnError) {
             throw RemoteException()
         }
-        return Response.success(200, MovieDtoFactory().create(FakeMovie.JohnWick))
+        return Response.success(MovieDtoFactory().create(FakeMovie.JohnWick))
     }
 }
