@@ -4,6 +4,6 @@ import dev.brunofelix.pmovie.feature.movie.domain.model.Movie
 
 sealed class MovieDetailsState {
     data object Loading : MovieDetailsState()
-    data class Success(val movie: Movie?) : MovieDetailsState()
-    data class Error(val message: String?) : MovieDetailsState()
+    data class Success(val movie: Movie? = null) : MovieDetailsState()
+    data class Error(val message: String? = "") : MovieDetailsState()
 }
